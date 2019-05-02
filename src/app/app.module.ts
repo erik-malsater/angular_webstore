@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeedComponent } from './feed/feed.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FeedComponent
+    FeedComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
