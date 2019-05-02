@@ -1,6 +1,8 @@
-<div *ngFor = 'let product of productList'>
-  <p> {{ product.name }} </p>
+<div>
+  <app-product-card *ngFor = 'let product of productList' [productFromInput] = 'product'></app-product-card>
+  
+  <!--<p> {{ product.name }} </p>
   <p> {{ product.year }} </p>
   <p> {{ product.price }} </p>
-  <img src="{{ product.imageUrl }}" alt="">
+  <img src="{{ product.imageUrl }}" alt="">-->
 </div>

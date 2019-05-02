@@ -10,8 +10,6 @@ export class FeedComponent implements OnInit {
 
   productList = [];
 
-  
-
   constructor(private dataService: FetchDataService) { }
 
   ngOnInit() {
