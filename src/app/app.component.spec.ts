@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { FeedComponent } from 'src/app/feed/feed.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -15,7 +16,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         NavbarComponent,
-        FeedComponent
+        FeedComponent,
+        ProductCardComponent
       ],
     }).compileComponents();
   }));

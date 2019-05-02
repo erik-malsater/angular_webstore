@@ -6,6 +6,8 @@ nav{
     justify-content: space-between;
     padding: 1rem;
     box-sizing: border-box;
+    position: fixed;
+    z-index: 100;
 }
 
 h1{

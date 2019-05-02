@@ -1,7 +1,99 @@
 .productCardBox{
+    position: relative;
+    //z-index: -1;
     width: 20rem;
+    margin: 0 3rem 3rem 3rem;
 
     img{
         max-width: 20rem;
     }
 }
+
+button{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+     clip: rect(1px, 1px, 1px, 1px);
+     height: 1px;
+     overflow: hidden;
+     position: absolute;
+     white-space: nowrap; /* added line */
+     width: 1px;
+}
+
+.productCardBox:hover img{
+    opacity: 0.3;
+}
+
+.productCardBox:hover button{
+    clip:auto;
+    width:auto;
+    height:auto;
+    overflow:auto;
+}
+
+h2, p{
+    position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+    clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+     clip: rect(1px, 1px, 1px, 1px);
+     height: 1px;
+     overflow: hidden;
+     position: absolute;
+     white-space: nowrap; /* added line */
+     width: 1px;
+}
+
+p{
+    top: 60%;
+    left: 50%;  
+}
+
+.productCardBox:hover h2{
+    //position:relative;
+    clip:auto;
+    width:auto;
+    height:auto;
+    overflow:auto;
+}
+
+.productCardBox:hover p{
+    //position:relative;
+    clip:auto;
+    width:auto;
+    height:auto;
+    overflow:auto;
+}
+
+
+hej{
+    clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+     clip: rect(1px, 1px, 1px, 1px);
+     height: 1px;
+     overflow: hidden;
+     position: absolute;
+     white-space: nowrap; /* added line */
+     width: 1px;
+    }
+   
+   
+    hej{
+   position:relative;
+    clip:auto;
+    width:auto;
+    height:auto;
+    overflow:auto;
+    }
