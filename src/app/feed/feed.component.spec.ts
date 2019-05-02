@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClientModule } from '@angular/common/http';
 import { FeedComponent } from './feed.component';
+import { MockFetchDataService } from '../services/mock-fetch-data.service';
+import { FetchDataService } from '../services/fetch-data.service';
 
 describe('FeedComponent', () => {
   let component: FeedComponent;
@@ -8,8 +11,16 @@ describe('FeedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ HttpClientModule ],
       declarations: [ FeedComponent ]
     })
+
+    .overrideComponent(FeedComponent,
+      { set: { providers: [{ provide: FetchDataService,
+      useClass: MockFetchDataService
+      }]}}
+      )
+    
     .compileComponents();
   }));
 
@@ -22,4 +33,10 @@ describe('FeedComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('productList should contain 3 objects', () => {
+    fixture.detectChanges();
+    expect(component.productList.length).toEqual(3);
+  });
+
 });

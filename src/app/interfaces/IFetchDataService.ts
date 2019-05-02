@@ -1,5 +1,6 @@
 import { IProduct } from './IProduct';
+import { Observable } from 'rxjs';
 
 export interface IFetchDataService {
-    getData(): IProduct[];
+    getData(): Observable<IProduct[]>;
 }

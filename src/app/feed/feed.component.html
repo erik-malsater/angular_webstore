@@ -1,3 +1,6 @@
-<p>
-  feed works!
-</p>
+<div *ngFor = 'let product of productList'>
+  <p> {{ product.name }} </p>
+  <p> {{ product.year }} </p>
+  <p> {{ product.price }} </p>
+  <img src="{{ product.imageUrl }}" alt="">
+</div>
