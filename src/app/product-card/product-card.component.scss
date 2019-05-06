@@ -2,33 +2,36 @@
     position: relative;
     //z-index: -1;
     width: 20rem;
+    height: 30rem;
     margin: 0 3rem 3rem 3rem;
 
     img{
-        max-width: 20rem;
+        width: 20rem;
+        height: 30rem;
+        object-fit: scale-down;
     }
 }
 
 button{
-    position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #555;
-  color: white;
-  font-size: 16px;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  clip: rect(1px 1px 1px 1px); /* IE 6/7 */
-     clip: rect(1px, 1px, 1px, 1px);
-     height: 1px;
-     overflow: hidden;
-     position: absolute;
-     white-space: nowrap; /* added line */
-     width: 1px;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    // position: absolute;
+    white-space: nowrap; /* added line */
+    width: 1px;
 }
 
 .productCardBox:hover img{
@@ -42,24 +45,49 @@ button{
     overflow:auto;
 }
 
-h2, p{
-    position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+.hoverBox, h2, p{
+    // position: absolute;
+    // transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
     clip: rect(1px 1px 1px 1px); /* IE 6/7 */
-     clip: rect(1px, 1px, 1px, 1px);
-     height: 1px;
-     overflow: hidden;
-     position: absolute;
-     white-space: nowrap; /* added line */
-     width: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    // position: absolute;
+    //white-space: nowrap; /* added line */
+    width: 1px;
+}
+
+.hoverBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+h2{
+    top: 55%;
+    left: 50%;
 }
 
 p{
     top: 60%;
     left: 50%;  
+}
+
+.productCardBox:hover .hoverBox{
+    clip:auto;
+    width:auto;
+    height:auto;
+    overflow:auto;
+    width: 100%;
+    height: 30rem;
+    box-sizing: border-box;
+    padding: 8rem 2rem 2rem 2rem;
+    text-align: center;
+    // background-color: blue;
+    //z-index: 1000;
 }
 
 .productCardBox:hover h2{
@@ -81,19 +109,19 @@ p{
 
 hej{
     clip: rect(1px 1px 1px 1px); /* IE 6/7 */
-     clip: rect(1px, 1px, 1px, 1px);
-     height: 1px;
-     overflow: hidden;
-     position: absolute;
-     white-space: nowrap; /* added line */
-     width: 1px;
-    }
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; /* added line */
+    width: 1px;
+}
    
    
-    hej{
-   position:relative;
+hej{
+    position:relative;
     clip:auto;
     width:auto;
     height:auto;
     overflow:auto;
-    }
+}
