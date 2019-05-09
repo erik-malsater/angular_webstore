@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchDataService } from '../services/fetch-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feed',
@@ -10,7 +11,7 @@ export class FeedComponent implements OnInit {
 
   productList = [];
 
-  constructor(private dataService: FetchDataService) { }
+  constructor(private dataService: FetchDataService, private router: Router) { }
 
   ngOnInit() {
     this.dataService.getData().subscribe(data => this.productList = data);

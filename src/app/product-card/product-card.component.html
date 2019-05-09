@@ -1,11 +1,11 @@
-<div class="productCardBox">
+<div class="productCardBox" (click)="onSelect(product)">
   <!--<h2> {{ productFromInput.name }} ({{ productFromInput.year }}) </h2>-->
   <img src="{{ productFromInput.imageUrl }}" alt="">
   <!--<p>Price: {{ productFromInput.price }} </p>-->
   <div class="hoverBox">
     <h2> {{ productFromInput.name }} ({{ productFromInput.year }}) </h2>
     <p>Price: {{ productFromInput.price }} </p>
-    <button (click) = "addToCart(productFromInput)">Add to cart</button>
+    <button (click) = "addToCart(productFromInput);">Add to cart</button>
   </div>
   
 </div>
