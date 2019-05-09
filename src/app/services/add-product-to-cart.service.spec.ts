@@ -4,7 +4,13 @@ import { AddProductToCartService } from './add-product-to-cart.service';
 import { MockAddProductToCartService } from './mock-add-product-to-cart.service';
 
 describe('AddProductToCartService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => TestBed.configureTestingModule({
+    
+  }));
+
+  beforeEach(() => {
+    sessionStorage.clear();
+  });
 
   it('should be created', () => {
     const service: AddProductToCartService = TestBed.get(AddProductToCartService);
@@ -14,7 +20,7 @@ describe('AddProductToCartService', () => {
   it('should add 1 product object to session storage', () => {
     const service: AddProductToCartService = TestBed.get(AddProductToCartService);
     const mock: MockAddProductToCartService = TestBed.get(MockAddProductToCartService);
-    sessionStorage.clear();
+    //sessionStorage.clear();
     sessionStorage.removeItem("productCart");
     service.addProduct(mock.getMockData());
     let cart = JSON.parse(sessionStorage.getItem("productCart"));
