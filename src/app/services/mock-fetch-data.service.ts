@@ -39,7 +39,7 @@ export class MockFetchDataService implements IFetchDataService {
 
   constructor(private http: HttpClient) { }
 
-  getData(): Observable<IProduct[]> {
+  fetchAllData(): Observable<IProduct[]> {
     return of(this.mockProductList);
   }
 

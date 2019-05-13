@@ -11,7 +11,8 @@ export class FetchDataService implements IFetchDataService {
 
   constructor(private http: HttpClient) { }
 
-  getData(): Observable<IProduct[]>{
+  fetchAllData(): Observable<IProduct[]>{
     return this.http.get<IProduct[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
   }
+
 }
