@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FetchDataService } from '../services/fetch-data.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private dataService: FetchDataService) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      const filmId = params['id'];
+    });
+    
   }
 
 }
