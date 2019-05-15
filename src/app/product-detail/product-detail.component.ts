@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FetchDataService } from '../services/fetch-data.service';
 import { IProduct } from '../interfaces/IProduct';
+import { AddProductToCartService } from '../services/add-product-to-cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,8 +13,15 @@ export class ProductDetailComponent implements OnInit {
 
   productId: number;
   singleProduct: IProduct;
+  quantityList = [1,2,3,4,5,6,7,8,9];
+  selectedQuantityString: string = '1';
+  selectedQuantity: number;
+  nrSelect = 1;
 
-  constructor(private route: ActivatedRoute, private dataService: FetchDataService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private dataService: FetchDataService, 
+    private addToCartService: AddProductToCartService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -22,4 +30,8 @@ export class ProductDetailComponent implements OnInit {
     this.dataService.fetchSingleData(this.productId).subscribe(data => this.singleProduct = data);
   }
 
+  addToCart(){
+    this.selectedQuantity = parseInt(this.selectedQuantityString);
+    this.addToCartService.addQuantityOfProducts(this.singleProduct, this.selectedQuantity);
+  }
 }

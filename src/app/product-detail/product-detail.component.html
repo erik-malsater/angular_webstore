@@ -8,6 +8,11 @@
 
   <p>{{ singleProduct?.description }}</p>
 
+  <button (click)="addToCart()">Add to cart</button>
+  <select [(ngModel)]="selectedQuantityString">
+    <option *ngFor="let quantity of quantityList" [value]="quantity">{{ quantity }}</option>
+  </select>
+
 </div>
 
 
