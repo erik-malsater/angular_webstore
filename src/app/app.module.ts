@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FeedComponent } from './feed/feed.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     NavbarComponent,
     FeedComponent,
     ProductCardComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

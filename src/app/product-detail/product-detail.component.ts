@@ -16,7 +16,6 @@ export class ProductDetailComponent implements OnInit {
   quantityList = [1,2,3,4,5,6,7,8,9];
   selectedQuantityString: string = '1';
   selectedQuantity: number;
-  nrSelect = 1;
 
   constructor(
     private route: ActivatedRoute, 
