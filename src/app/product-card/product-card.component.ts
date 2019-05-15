@@ -20,11 +20,11 @@ export class ProductCardComponent implements OnInit {
   addToCart(product: IProduct) {
     event.cancelBubble = true;
     if(event.stopPropagation) event.stopPropagation();
-      this.addProductService.addProduct(product);
+    this.addProductService.addProduct(product);
   }
 
-    onSelect(product){
-      this.router.navigate(['/products', this.productFromInput.id])
-    }
+  onSelect(product){
+    this.router.navigate(['/products', this.productFromInput.id])
+  }
 
 }

@@ -41,8 +41,6 @@ describe('ProductCardComponent', () => {
 
 });
 
-
-
 @Component({
   selector: 'host-component',
   template: '<app-feed productFromInput = "input"></app-feed>'
@@ -54,82 +52,3 @@ class TestHostComponent {
     this.input = newInput;
   }
 }
-
-/*
-
-describe('AddToCartFunction', () => {
-  let component: ProductCardComponent;
-  let fixture: ComponentFixture<ProductCardComponent>;
-  let mockData: MockAddProductToCartService;
-  //let mockData: MockData;
-  //let mockDataFixture: ComponentFixture<MockData>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ProductCardComponent ]
-    })
-    
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ProductCardComponent);
-    component = fixture.componentInstance;
-
-    //mockDataFixture = TestBed.createComponent(MockData);
-    //mockData = mockDataFixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should add product object to session storage', () => {
-    fixture.detectChanges();
-    sessionStorage.clear();
-    component.addToCart(mockData.getMockData());
-    let cart = sessionStorage.getItem("productCart");
-    expect((cart.).toEqual(1));
-  });
-
-})
-
-*/
-/*
-
-describe('FeedComponent', () => {
-  let component: FeedComponent;
-  let fixture: ComponentFixture<FeedComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [ HttpClientModule ],
-      declarations: [ 
-        FeedComponent,
-        ProductCardComponent
-      ]
-    })
-
-    .overrideComponent(FeedComponent,
-      { set: { providers: [{ provide: FetchDataService,
-      useClass: MockFetchDataService
-      }]}}
-      )
-    
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(FeedComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('productList should contain 3 objects', () => {
-    fixture.detectChanges();
-    expect(component.productList.length).toEqual(3);
-  });
-
-});
-*/

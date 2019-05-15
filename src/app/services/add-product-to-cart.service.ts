@@ -16,11 +16,24 @@ export class AddProductToCartService implements IAddProductToCartService {
 
   addProduct(productObject: IProduct){
     if(this.currentCart === null){
-      //this.newCart.push(this.currentCart);
       this.newCart.push(productObject);
       sessionStorage.setItem("productCart", JSON.stringify(this.newCart));
     } else{
       this.currentCart.push(productObject);
+      sessionStorage.setItem("productCart", JSON.stringify(this.currentCart));
+    }
+  }
+
+  addQuantityOfProducts(productObject: IProduct, quantity: number){
+    if(this.currentCart === null){
+      for(let i = 0; i < quantity; i++){
+        this.newCart.push(productObject);
+      }
+      sessionStorage.setItem("productCart", JSON.stringify(this.newCart));
+    } else{
+      for(let i = 0; i < quantity; i++){
+        this.currentCart.push(productObject);
+      }
       sessionStorage.setItem("productCart", JSON.stringify(this.currentCart));
     }
   }
