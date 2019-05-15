@@ -5,7 +5,7 @@ import { FeedComponent } from '../feed/feed.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddProductToCartService } from '../services/add-product-to-cart.service';
 import { MockAddProductToCartService } from '../services/mock-add-product-to-cart.service';
-//import { MockData } from '../services/mock-data';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ProductCardComponent } from './product-card.component';
 
@@ -16,7 +16,7 @@ describe('ProductCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientModule ],
+      imports: [ HttpClientModule, RouterTestingModule ],
       declarations: [ ProductCardComponent, TestHostComponent, FeedComponent ]
     })
 

@@ -15,4 +15,8 @@ export class FetchDataService implements IFetchDataService {
     return this.http.get<IProduct[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
   }
 
+  fetchSingleData(id: number): Observable<IProduct>{
+    return this.http.get<IProduct>('https://medieinstitutet-wie-products.azurewebsites.net/api/products/' + id);
+  }
+
 }

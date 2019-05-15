@@ -5,6 +5,7 @@ import { FeedComponent } from './feed.component';
 import { MockFetchDataService } from '../services/mock-fetch-data.service';
 import { FetchDataService } from '../services/fetch-data.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('FeedComponent', () => {
   let component: FeedComponent;
@@ -12,7 +13,7 @@ describe('FeedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientModule ],
+      imports: [ HttpClientModule, RouterTestingModule ],
       declarations: [ 
         FeedComponent,
         ProductCardComponent

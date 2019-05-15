@@ -21,7 +21,7 @@ export class ProductCardComponent implements OnInit {
     event.cancelBubble = true;
     if(event.stopPropagation) event.stopPropagation();
       this.addProductService.addProduct(product);
-    }
+  }
 
     onSelect(product){
       this.router.navigate(['/products', this.productFromInput.id])
