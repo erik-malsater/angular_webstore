@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductDetailComponent } from './product-detail.component';
-import { FetchDataService } from '../services/fetch-data.service';
+import { DataService } from '../services/data.service';
 import { MockFetchDataService } from '../services/mock-fetch-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -21,7 +21,7 @@ describe('ProductDetailComponent', () => {
 
 
       providers: [{ provide: ActivatedRoute, useValue: activatedRouteStub },
-      { provide: FetchDataService, useClass: MockFetchDataService}]
+      { provide: DataService, useClass: MockFetchDataService}]
 
 
     })

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class FetchDataService implements IFetchDataService {
+export class DataService implements IFetchDataService {
 
   constructor(private http: HttpClient) { }
 

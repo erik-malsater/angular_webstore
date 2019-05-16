@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FetchDataService } from '../services/fetch-data.service';
+import { DataService } from '../services/data.service';
 import { IProduct } from '../interfaces/IProduct';
 import { CartService } from '../services/cart.service';
 
@@ -19,7 +19,7 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute, 
-    private dataService: FetchDataService, 
+    private dataService: DataService, 
     private addToCartService: CartService
     ) { }
 
