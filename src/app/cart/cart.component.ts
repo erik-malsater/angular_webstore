@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.cartList = this.cartService.fetchCart();
+    this.cartService.cast.subscribe(myCart => this.cartList = myCart);
   }
 
 }

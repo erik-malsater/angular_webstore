@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IAddProductToCartService } from '../interfaces/IAddProductToCartService';
 import { IProduct } from '../interfaces/IProduct';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -8,13 +9,13 @@ import { IProduct } from '../interfaces/IProduct';
 })
 export class CartService implements IAddProductToCartService {
 
-  constructor() { 
-    
-  }
+  constructor() { }
 
-  cartString:string;
-  cart:any;
-  //newCart;
+  cartString: string;
+  cart: any;
+
+  myCart = new BehaviorSubject<IProduct[]>(null);
+  cast = this.myCart.asObservable();
 
   updateCart(){
     this.cartString = sessionStorage.getItem("productCart");
@@ -24,67 +25,32 @@ export class CartService implements IAddProductToCartService {
     }
   }
 
+  castCart(){
+    this.myCart.next(this.cart);
+  }
+
 
   addProduct(productObject: IProduct){
     this.updateCart();
     this.cart.push(productObject);
     sessionStorage.setItem("productCart", JSON.stringify(this.cart));
-  }
-
-  
-/*
-
-  addProduct(productObject: IProduct){
-    if(this.currentCart === null){
-      this.newCart.push(productObject);
-      sessionStorage.setItem("productCart", JSON.stringify(this.newCart));
-    } else{
-      this.currentCart.push(productObject);
-      sessionStorage.setItem("productCart", JSON.stringify(this.currentCart));
-    }
+    this.castCart();
   }
 
 
-  */
-
- addQuantityOfProducts(productObject: IProduct, quantity: number){
+  addQuantityOfProducts(productObject: IProduct, quantity: number){
     this.updateCart();
     for(let i = 0; i < quantity; i++){
       this.cart.push(productObject);
     }
     sessionStorage.setItem("productCart", JSON.stringify(this.cart));
-}
-
-  /*
-
-  addQuantityOfProducts(productObject: IProduct, quantity: number){
-    if(this.currentCart === null){
-      for(let i = 0; i < quantity; i++){
-        this.newCart.push(productObject);
-      }
-      sessionStorage.setItem("productCart", JSON.stringify(this.newCart));
-    } else{
-      for(let i = 0; i < quantity; i++){
-        this.currentCart.push(productObject);
-      }
-      sessionStorage.setItem("productCart", JSON.stringify(this.currentCart));
-    }
+    this.castCart();
   }
-
-  */
-
-
- fetchCart(){
-    this.updateCart();
-    return this.cart;
-  }
-
-  /*
 
   fetchCart(){
-    return this.currentCart;
+    this.updateCart();
+    this.castCart();
+    return this.cart;
   }
-
-  */
 
 }
