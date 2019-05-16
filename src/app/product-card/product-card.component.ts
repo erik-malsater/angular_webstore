@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IProduct } from '../interfaces/IProduct';
-import { AddProductToCartService } from '../services/add-product-to-cart.service';
+import { CartService } from '../services/cart.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,14 +12,16 @@ export class ProductCardComponent implements OnInit {
 
   @Input() productFromInput: IProduct;
 
-  constructor(private addProductService: AddProductToCartService, private router: Router) { }
+  constructor(private addProductService: CartService, private router: Router) { }
 
   ngOnInit() { 
   }
 
   addToCart(product: IProduct) {
     event.cancelBubble = true;
-    if(event.stopPropagation) event.stopPropagation();
+    if(event.stopPropagation) {
+      event.stopPropagation();
+    }
     this.addProductService.addProduct(product);
   }
 

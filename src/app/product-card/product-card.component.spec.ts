@@ -3,7 +3,7 @@ import { IProduct } from '../interfaces/IProduct';
 import { Component } from '@angular/core';
 import { FeedComponent } from '../feed/feed.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AddProductToCartService } from '../services/add-product-to-cart.service';
+import { CartService } from '../services/cart.service';
 import { MockAddProductToCartService } from '../services/mock-add-product-to-cart.service';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -21,7 +21,7 @@ describe('ProductCardComponent', () => {
     })
 
     .overrideComponent(FeedComponent,
-      { set: { providers: [{ provide: AddProductToCartService,
+      { set: { providers: [{ provide: CartService,
       useClass: MockAddProductToCartService
       }]}}
       )

@@ -31,3 +31,17 @@ h1{
     height: 2rem;
 
 }
+
+.cartButton{
+    background-color: white;
+}
+
+:host {
+    background-color: yellow;
+ }
+
+ :host {
+    /deep/ app-cart {
+       background-color: yellow;
+    }
+}

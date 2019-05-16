@@ -6,7 +6,7 @@ import { IProduct } from '../interfaces/IProduct';
 @Injectable({
   providedIn: 'root'
 })
-export class AddProductToCartService implements IAddProductToCartService {
+export class CartService implements IAddProductToCartService {
 
   constructor() { }
 

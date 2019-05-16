@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 import { ActivatedRouteStub } from './testing/activateRouteStub';
+import { FormsModule } from '@angular/forms';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
@@ -15,7 +16,7 @@ describe('ProductDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientModule, RouterTestingModule ],
+      imports: [ HttpClientModule, RouterTestingModule, FormsModule ],
       declarations: [ ProductDetailComponent ],
 
 
