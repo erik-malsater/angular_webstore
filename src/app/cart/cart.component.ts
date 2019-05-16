@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../interfaces/IProduct';
 import { CartService } from '../services/cart.service';
 
+
+import { Subject } from 'rxjs';
+
+
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',

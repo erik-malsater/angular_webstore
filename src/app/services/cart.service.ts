@@ -8,11 +8,31 @@ import { IProduct } from '../interfaces/IProduct';
 })
 export class CartService implements IAddProductToCartService {
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
-  currentCartString = sessionStorage.getItem("productCart");
-  currentCart = JSON.parse(this.currentCartString);
-  newCart = [];
+  cartString:string;
+  cart:any;
+  //newCart;
+
+  updateCart(){
+    this.cartString = sessionStorage.getItem("productCart");
+    this.cart = JSON.parse(this.cartString);
+    if(this.cart === null){
+      this.cart = [];
+    }
+  }
+
+
+  addProduct(productObject: IProduct){
+    this.updateCart();
+    this.cart.push(productObject);
+    sessionStorage.setItem("productCart", JSON.stringify(this.cart));
+  }
+
+  
+/*
 
   addProduct(productObject: IProduct){
     if(this.currentCart === null){
@@ -23,6 +43,19 @@ export class CartService implements IAddProductToCartService {
       sessionStorage.setItem("productCart", JSON.stringify(this.currentCart));
     }
   }
+
+
+  */
+
+ addQuantityOfProducts(productObject: IProduct, quantity: number){
+    this.updateCart();
+    for(let i = 0; i < quantity; i++){
+      this.cart.push(productObject);
+    }
+    sessionStorage.setItem("productCart", JSON.stringify(this.cart));
+}
+
+  /*
 
   addQuantityOfProducts(productObject: IProduct, quantity: number){
     if(this.currentCart === null){
@@ -38,8 +71,20 @@ export class CartService implements IAddProductToCartService {
     }
   }
 
+  */
+
+
+ fetchCart(){
+    this.updateCart();
+    return this.cart;
+  }
+
+  /*
+
   fetchCart(){
     return this.currentCart;
   }
+
+  */
 
 }

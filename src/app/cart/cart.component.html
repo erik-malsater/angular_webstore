@@ -3,9 +3,7 @@
   <button class="dropbtn">Cart</button>
   <div class="dropdown-content">
     <div>A movie</div>
-    <div>Another movie</div>
-    <div>And another movie</div>
-    <div>And so on</div>
+    <div *ngFor="let product of cartList">{{ product.name }}</div>
   </div>
 
 </div>
