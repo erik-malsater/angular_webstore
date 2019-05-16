@@ -38,4 +38,8 @@ export class CartService implements IAddProductToCartService {
     }
   }
 
+  fetchCart(){
+    return this.currentCart;
+  }
+
 }
