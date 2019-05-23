@@ -23,4 +23,8 @@ export class CartComponent implements OnInit {
     this.cartService.cast.subscribe(cartSubject => this.cartList = cartSubject);
   }
 
+  removeProduct(id: number): void{
+    this.cartService.removeProduct(id);
+  }
+
 }

@@ -65,6 +65,25 @@ describe('CartService', () => {
     expect(result).toEqual(0);
   });
 
+  it('removeProduct function should decrement amount of product by 1 if amount is more than 1', () => {
+    const service: CartService = TestBed.get(CartService);
+    const mock: MockAddProductToCartService = TestBed.get(MockAddProductToCartService);
+    let mockData = mock.getMockData();
+    service.addProduct(mockData);
+    service.addProduct(mockData);
+    service.removeProduct(1);
+    expect(service.cart[0].amount).toEqual(1);
+  });
+
+  it('removeProduct function should remove product from cart if amount is 1', () => {
+    const service: CartService = TestBed.get(CartService);
+    const mock: MockAddProductToCartService = TestBed.get(MockAddProductToCartService);
+    let mockData = mock.getMockData();
+    service.addProduct(mockData);
+    service.removeProduct(1);
+    expect(service.cart.length).toEqual(0);
+  });
+
   describe('fetchCart', () => {
 
     beforeEach(() => {

@@ -64,6 +64,21 @@ export class CartService implements IAddProductToCartService {
     this.castCart();
   }
 
+  removeProduct(id: number){
+    this.updateCart()
+    for(let i = 0; i < this.cart.length; i++){
+      if(this.cart[i].id === id){
+        if(this.cart[i].amount > 1){
+          this.cart[i].amount--;
+        } else{
+          this.cart.splice(i, 1);
+        }
+      }
+    }
+    sessionStorage.setItem("productCart", JSON.stringify(this.cart));
+    this.castCart();
+  }
+
   fetchCart(){
     this.updateCart();
     this.castCart();
