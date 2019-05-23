@@ -11,10 +11,10 @@
           <div class="productImageFrame"><img src="{{ product.imageUrl }}" alt=""></div>
           <div class="productInfoBox">
             <p>{{ product.name }}</p>
-            <p>Antal: </p>
+            <p>Antal: {{ product.amount }}</p>
           </div>
           <div class="productPriceBox">
-            <p>{{ product.price }} kr</p>
+            <p>{{ product.price * product.amount }} kr</p>
             <p class="removeProduct">Remove</p>
           </div>
 

@@ -13,7 +13,8 @@ export class MockAddProductToCartService {
     "year": 1978, 
     "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/ea/The_Shining_%281980%29.png",
     "description": "Once upon a time.",
-    "productCategory": [{"categoryId": 1}, {"category": null}]
+    "productCategory": [{"categoryId": 1}, {"category": null}],
+    "amount": null
   };
 
   getMockData(){

@@ -17,7 +17,8 @@ export class MockFetchDataService implements IFetchDataService {
       "year": 1978, 
       "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/ea/The_Shining_%281980%29.png",
       "description": "Once upon a time.",
-      "productCategory": [{"categoryId": 1}, {"category": null}]
+      "productCategory": [{"categoryId": 1}, {"category": null}],
+      "amount": null
     },
       { "id": 2, 
       "name": "Pulp Fiction", 
@@ -25,7 +26,8 @@ export class MockFetchDataService implements IFetchDataService {
       "year": 1994, 
       "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/3b/Pulp_Fiction_%281994%29_poster.jpg",
       "description": "And then they lived...",
-      "productCategory": [{"categoryId": 2}, {"category": null}]
+      "productCategory": [{"categoryId": 2}, {"category": null}],
+      "amount": null
     },
       { "id": 3, 
       "name": "Kill Bill", 
@@ -33,7 +35,8 @@ export class MockFetchDataService implements IFetchDataService {
       "year": 2001, 
       "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c4/Kill_Bill_Volume_2.png",
       "description": "Happily ever after.",
-      "productCategory": [{"categoryId": 3}, {"category": null}]
+      "productCategory": [{"categoryId": 3}, {"category": null}],
+      "amount": null
     }
   ];
 
@@ -44,7 +47,8 @@ export class MockFetchDataService implements IFetchDataService {
     "year": 1978, 
     "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/ea/The_Shining_%281980%29.png",
     "description": "Once upon a time.",
-    "productCategory": [{"categoryId": 1}, {"category": null}]
+    "productCategory": [{"categoryId": 1}, {"category": null}],
+    "amount": null
     };
 
   mockSingleProduct2 = { };

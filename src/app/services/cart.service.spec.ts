@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 
 import { CartService } from './cart.service';
 import { MockAddProductToCartService } from './mock-add-product-to-cart.service';
-import { MockFetchDataService } from './mock-fetch-data.service';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('CartService', () => {
@@ -40,7 +39,30 @@ describe('CartService', () => {
     const mock: MockAddProductToCartService = TestBed.get(MockAddProductToCartService);
     service.addQuantityOfProducts(mock.getMockData(), 3);
     let cart = JSON.parse(sessionStorage.getItem("productCart"));
-    expect(cart.length).toEqual(3);
+    expect(cart[0].amount).toEqual(3);
+  });
+
+  it('updateCart function should set cart to empty array if session storage key productCart has no value', () => {
+    const service: CartService = TestBed.get(CartService);
+    service.updateCart();
+    expect(service.cart.length).toEqual(0);
+  });
+
+  it('checkIfProductIsInCart function should return -1 if product does not already exists in cart', () => {
+    const service: CartService = TestBed.get(CartService);
+    const mock: MockAddProductToCartService = TestBed.get(MockAddProductToCartService);
+    service.cart = [];
+    let result = service.checkIfProductIsInCart(mock.getMockData());
+    expect(result).toEqual(-1);
+  });
+
+  it('checkIfProductIsInCart function should return index of product already existing in cart', () => {
+    const service: CartService = TestBed.get(CartService);
+    const mock: MockAddProductToCartService = TestBed.get(MockAddProductToCartService);
+    let mockData = mock.getMockData();
+    service.cart = [mockData];
+    let result = service.checkIfProductIsInCart(mock.getMockData());
+    expect(result).toEqual(0);
   });
 
   describe('fetchCart', () => {
@@ -54,7 +76,6 @@ describe('CartService', () => {
 
     it('should fetch 1 object from session storage and return it', () => {
       const service: CartService = TestBed.get(CartService);
-
       let cart = service.fetchCart();
       expect(cart.length).toEqual(1);
     });

@@ -14,8 +14,8 @@ export class CartService implements IAddProductToCartService {
   cartString: string;
   cart: any;
 
-  myCart = new BehaviorSubject<IProduct[]>(null);
-  cast = this.myCart.asObservable();
+  cartSubject = new BehaviorSubject<IProduct[]>(null);
+  cast = this.cartSubject.asObservable();
 
   updateCart(){
     this.cartString = sessionStorage.getItem("productCart");
@@ -26,22 +26,39 @@ export class CartService implements IAddProductToCartService {
   }
 
   castCart(){
-    this.myCart.next(this.cart);
+    this.cartSubject.next(this.cart);
   }
 
+  checkIfProductIsInCart(productObject: IProduct){
+    for(let i = 0; i < this.cart.length; i++){
+      if(this.cart[i].id === productObject.id){
+        return i;
+      }
+    }
+    return -1;
+  }
 
   addProduct(productObject: IProduct){
     this.updateCart();
-    this.cart.push(productObject);
+    if(this.checkIfProductIsInCart(productObject) === -1){
+      productObject.amount = 1;
+      this.cart.push(productObject);
+    } else{
+      this.cart[this.checkIfProductIsInCart(productObject)].amount++;
+    }
     sessionStorage.setItem("productCart", JSON.stringify(this.cart));
     this.castCart();
   }
 
-
   addQuantityOfProducts(productObject: IProduct, quantity: number){
     this.updateCart();
     for(let i = 0; i < quantity; i++){
-      this.cart.push(productObject);
+      if(this.checkIfProductIsInCart(productObject) === -1){
+        productObject.amount = 1;
+        this.cart.push(productObject);
+      } else{
+        this.cart[this.checkIfProductIsInCart(productObject)].amount++;
+      }
     }
     sessionStorage.setItem("productCart", JSON.stringify(this.cart));
     this.castCart();
