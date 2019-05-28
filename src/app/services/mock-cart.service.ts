@@ -4,7 +4,7 @@ import { IProduct } from '../interfaces/IProduct';
 @Injectable({
   providedIn: 'root'
 })
-export class MockAddProductToCartService {
+export class MockCartService {
 
   mockProduct: IProduct = { 
     "id": 1, 

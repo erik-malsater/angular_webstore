@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { FeedComponent } from '../feed/feed.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartService } from '../services/cart.service';
-import { MockAddProductToCartService } from '../services/mock-add-product-to-cart.service';
+import { MockCartService } from '../services/mock-cart.service';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { ProductCardComponent } from './product-card.component';
@@ -22,7 +22,7 @@ describe('ProductCardComponent', () => {
 
     .overrideComponent(FeedComponent,
       { set: { providers: [{ provide: CartService,
-      useClass: MockAddProductToCartService
+      useClass: MockCartService
       }]}}
       )
 
