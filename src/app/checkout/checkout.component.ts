@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { IProduct } from '../interfaces/IProduct';
+import { CartService } from '../services/cart.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  cartList: Array<IProduct>;
+
+  constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit() {
+    this.cartList = this.cartService.fetchCart();
+    this.cartService.cast.subscribe(cartSubject => this.cartList = cartSubject);
   }
 
 }

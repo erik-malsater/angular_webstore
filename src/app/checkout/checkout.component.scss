@@ -1,0 +1,25 @@
+.checkoutContainer{
+    padding-top: 8rem;
+}
+
+.singleProductBox{
+    display: flex;
+    width: 20rem;
+    margin: 0 auto;
+    justify-content: space-between;
+
+    p{
+        margin-top: 0;
+    }
+}
+
+.productImageFrame img{
+    width: 100%;
+    height: auto;
+}
+
+.productImageFrame{
+    height: 20rem;
+    width: 10rem;
+    overflow: hidden;
+}
