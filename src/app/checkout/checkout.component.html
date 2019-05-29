@@ -8,10 +8,11 @@
         <p>{{ product.name }}</p>
         <p>Antal: {{ product.amount }}</p>
         <p>{{ product.price * product.amount }} kr</p>
-        <p class="removeProduct" (click) = removeProduct(product.id)>Remove</p>
+        <p class="removeProduct" (click) = "removeProduct(product.id)">Remove</p>
     </div>
-    
   </div>
+
+  <button (click)="postOrder()">Send order</button>
   
 </div>
 
