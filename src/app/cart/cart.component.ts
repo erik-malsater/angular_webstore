@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 
 import { Subject } from 'rxjs';
+import { delay } from 'q';
 
 
 
@@ -17,6 +18,8 @@ export class CartComponent implements OnInit {
 
   cartList: Array<IProduct>;
   productAmount: number;
+  isHoveredOver: boolean = false;
+  hoverTimeout: any;
 
   constructor(private cartService: CartService, private router: Router) { }
 
@@ -33,6 +36,17 @@ export class CartComponent implements OnInit {
 
   goToCheckout(): void{
     this.router.navigate(['/checkout']);
+  }
+
+  showCart(){
+    this.isHoveredOver = true;
+    clearInterval(this.hoverTimeout);
+  }
+
+  hideCart(){
+    this.hoverTimeout = setInterval(() => { 
+      this.isHoveredOver = false; }, 
+      1000);
   }
 
 }

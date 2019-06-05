@@ -27,7 +27,20 @@
   }
 }
 
+/*
 .cartContainer:hover .dropdownContainer {
+  width: auto;
+  height: auto;
+  margin: 0;
+
+  clip: auto;
+  overflow: visible;
+  right: 0rem;
+  width: 25rem;
+}
+*/
+
+.dropdownContainerHover {
   width: auto;
   height: auto;
   margin: 0;

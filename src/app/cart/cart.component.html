@@ -1,7 +1,7 @@
-<div class="cartContainer">
+<div class="cartContainer" (mouseover)="showCart()" (mouseleave)="hideCart()">
 
   <button class="dropdownButton">Cart {{ productAmount }}</button>
-  <div class="dropdownContainer">
+  <div class="dropdownContainer" [class.dropdownContainerHover]="isHoveredOver">
     <h2>Cart</h2>
     <div class="cartProductsContainer">
       <p *ngIf="!productAmount">Your cart is empty</p>
