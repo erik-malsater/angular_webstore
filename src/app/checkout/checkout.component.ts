@@ -18,7 +18,7 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit() {
     this.cartList = this.cartService.fetchCart();
-    this.cartService.cast.subscribe(cartSubject => this.cartList = cartSubject);
+    this.cartService.castCartSubject.subscribe(cartSubject => this.cartList = cartSubject);
   }
 
   removeProduct(id: number): void{

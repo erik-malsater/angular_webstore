@@ -1,8 +1,8 @@
 <div class="cartContainer">
 
-  <button class="dropdownButton">Cart</button>
+  <button class="dropdownButton">Cart {{ productAmount }}</button>
   <div class="dropdownContainer">
-    <h2>Cart</h2>
+    <h2>Cart {{ productAmount }}</h2>
     <div class="cartProductsContainer">
       <div class="cartSingleProductBox" *ngFor="let product of cartList">
 

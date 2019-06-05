@@ -84,6 +84,30 @@ describe('CartService', () => {
     expect(service.cart.length).toEqual(0);
   });
 
+  it('updateProductAmount function should set productAmount to 1 if one product is added to the cart', () => {
+    const service: CartService = TestBed.get(CartService);
+    const mock: MockCartService = TestBed.get(MockCartService);
+    let mockData = mock.getMockData();
+    service.cart = [];
+    service.cart.push(mockData);
+    service.cart[0].amount = 1;
+    service.updateProductAmount();
+    expect(service.productAmount).toEqual(1);
+  });
+
+  it('updateProductAmount function should set productAmount to null if cart is emptied', () => {
+    const service: CartService = TestBed.get(CartService);
+    const mock: MockCartService = TestBed.get(MockCartService);
+    let mockData = mock.getMockData();
+    service.cart = [];
+    service.cart.push(mockData);
+    service.cart[0].amount = 1;
+    service.updateProductAmount();
+    service.cart.pop();
+    service.updateProductAmount();
+    expect(service.productAmount).toEqual(null);
+  });
+
   describe('fetchCart', () => {
 
     beforeEach(() => {
