@@ -16,12 +16,15 @@ import { Subject } from 'rxjs';
 export class CartComponent implements OnInit {
 
   cartList: Array<IProduct>;
+  productAmount: number;
 
   constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit() {
     this.cartList = this.cartService.fetchCart();
-    this.cartService.cast.subscribe(cartSubject => this.cartList = cartSubject);
+    this.cartService.castCartSubject.subscribe(cartSubject => this.cartList = cartSubject);
+    this.cartService.castProductAmountSubject.subscribe(productAmountSubject => this.productAmount = productAmountSubject);
+    console.log(this.productAmount);
   }
 
   removeProduct(id: number): void{

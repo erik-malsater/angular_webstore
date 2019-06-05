@@ -13,9 +13,25 @@ export class CartService implements IAddProductToCartService {
 
   cartString: string;
   cart: any;
+  productAmount: number;
 
   cartSubject = new BehaviorSubject<IProduct[]>(null);
-  cast = this.cartSubject.asObservable();
+  castCartSubject = this.cartSubject.asObservable();
+
+  productAmountSubject = new BehaviorSubject<number>(null);
+  castProductAmountSubject = this.productAmountSubject.asObservable();
+
+
+  updateProductAmount(){
+    let amount: number = 0;
+    for(let i = 0; i < this.cart.length; i++){
+      amount += this.cart[i].amount;
+    }
+    if(amount === 0){
+      amount = null;
+    }
+    this.productAmount = amount;
+  }
 
   updateCart(){
     this.cartString = sessionStorage.getItem("productCart");
@@ -27,6 +43,7 @@ export class CartService implements IAddProductToCartService {
 
   castCart(){
     this.cartSubject.next(this.cart);
+    this.productAmountSubject.next(this.productAmount);
   }
 
   checkIfProductIsInCart(productObject: IProduct){
@@ -47,6 +64,8 @@ export class CartService implements IAddProductToCartService {
       this.cart[this.checkIfProductIsInCart(productObject)].amount++;
     }
     sessionStorage.setItem("productCart", JSON.stringify(this.cart));
+    this.updateProductAmount();
+    console.log(this.cart);
     this.castCart();
   }
 
@@ -61,6 +80,7 @@ export class CartService implements IAddProductToCartService {
       }
     }
     sessionStorage.setItem("productCart", JSON.stringify(this.cart));
+    this.updateProductAmount();
     this.castCart();
   }
 
@@ -76,11 +96,13 @@ export class CartService implements IAddProductToCartService {
       }
     }
     sessionStorage.setItem("productCart", JSON.stringify(this.cart));
+    this.updateProductAmount();
     this.castCart();
   }
 
   fetchCart(){
     this.updateCart();
+    this.updateProductAmount();
     this.castCart();
     return this.cart;
   }

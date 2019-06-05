@@ -4,6 +4,7 @@ import { IFetchDataService } from '../interfaces/IFetchDataService';
 import { IProduct } from '../interfaces/IProduct';
 import { Observable } from 'rxjs';
 import { IOrder } from '../interfaces/IOrder';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class DataService implements IFetchDataService {
 
   order: IOrder = {
     "companyId": 5,
-    "created": '0001-01-01T00:00:00',
+    "created": moment().format(),
     "createdBy": 'Erik',
     "paymentMethod": 'Bitcoin',
     "totalPrice": 0,

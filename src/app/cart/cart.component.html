@@ -1,9 +1,10 @@
 <div class="cartContainer">
 
-  <button class="dropdownButton">Cart</button>
+  <button class="dropdownButton">Cart {{ productAmount }}</button>
   <div class="dropdownContainer">
     <h2>Cart</h2>
     <div class="cartProductsContainer">
+      <p *ngIf="!productAmount">Your cart is empty</p>
       <div class="cartSingleProductBox" *ngFor="let product of cartList">
 
         <div class="productFlexBox">
