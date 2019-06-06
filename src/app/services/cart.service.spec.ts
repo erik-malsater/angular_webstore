@@ -103,6 +103,7 @@ describe('CartService', () => {
     service.cart.push(mockData);
     service.cart[0].amount = 1;
     service.productAmount = 1;
+    service.updateProductAmount();
     service.cart.pop();
     service.updateProductAmount();
     expect(service.productAmount).toEqual(null);
