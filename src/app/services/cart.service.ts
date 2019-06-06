@@ -14,6 +14,7 @@ export class CartService implements IAddProductToCartService {
   cartString: string;
   cart: any;
   productAmount: number;
+  totalPrice: number;
 
   cartSubject = new BehaviorSubject<IProduct[]>(null);
   castCartSubject = this.cartSubject.asObservable();
@@ -21,6 +22,16 @@ export class CartService implements IAddProductToCartService {
   productAmountSubject = new BehaviorSubject<number>(null);
   castProductAmountSubject = this.productAmountSubject.asObservable();
 
+  totalPriceSubject = new BehaviorSubject<number>(null);
+  castTotalPriceSubject = this.totalPriceSubject.asObservable();
+
+  updateTotalPrice(): void{
+    let totalSum: number = 0;
+    for(let i = 0; i < this.cart.length; i++){
+      totalSum += this.cart[i].amount * this.cart[i].price;
+    }
+    this.totalPrice = totalSum;
+  }
 
   updateProductAmount(){
     let amount: number = 0;
@@ -41,9 +52,10 @@ export class CartService implements IAddProductToCartService {
     }
   }
 
-  castCart(){
+  castSubjects(){
     this.cartSubject.next(this.cart);
     this.productAmountSubject.next(this.productAmount);
+    this.totalPriceSubject.next(this.totalPrice);
   }
 
   checkIfProductIsInCart(productObject: IProduct){
@@ -65,8 +77,8 @@ export class CartService implements IAddProductToCartService {
     }
     sessionStorage.setItem("productCart", JSON.stringify(this.cart));
     this.updateProductAmount();
-    console.log(this.cart);
-    this.castCart();
+    this.updateTotalPrice();
+    this.castSubjects();
   }
 
   addQuantityOfProducts(productObject: IProduct, quantity: number){
@@ -81,7 +93,8 @@ export class CartService implements IAddProductToCartService {
     }
     sessionStorage.setItem("productCart", JSON.stringify(this.cart));
     this.updateProductAmount();
-    this.castCart();
+    this.updateTotalPrice();
+    this.castSubjects();
   }
 
   removeProduct(id: number){
@@ -97,13 +110,15 @@ export class CartService implements IAddProductToCartService {
     }
     sessionStorage.setItem("productCart", JSON.stringify(this.cart));
     this.updateProductAmount();
-    this.castCart();
+    this.updateTotalPrice();
+    this.castSubjects();
   }
 
   fetchCart(){
     this.updateCart();
     this.updateProductAmount();
-    this.castCart();
+    this.updateTotalPrice();
+    this.castSubjects();
     return this.cart;
   }
 

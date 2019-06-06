@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
   productAmount: number;
   isHoveredOver: boolean = false;
   hoverTimeout: any;
+  totalPrice: number = 0;
 
   constructor(private cartService: CartService, private router: Router) { }
 
@@ -27,7 +28,7 @@ export class CartComponent implements OnInit {
     this.cartList = this.cartService.fetchCart();
     this.cartService.castCartSubject.subscribe(cartSubject => this.cartList = cartSubject);
     this.cartService.castProductAmountSubject.subscribe(productAmountSubject => this.productAmount = productAmountSubject);
-    console.log(this.productAmount);
+    this.cartService.castTotalPriceSubject.subscribe(totalPriceSubject => this.totalPrice = totalPriceSubject);
   }
 
   removeProduct(id: number): void{
@@ -35,6 +36,7 @@ export class CartComponent implements OnInit {
   }
 
   goToCheckout(): void{
+    console.log('clicked');
     this.router.navigate(['/checkout']);
   }
 

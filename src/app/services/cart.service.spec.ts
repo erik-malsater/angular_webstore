@@ -109,6 +109,17 @@ describe('CartService', () => {
     expect(service.productAmount).toEqual(null);
   });
 
+  it('updateTotalPrice function should multiply every product amount with its price and set totalPrice to the total sum of it', () => {
+    const service: CartService = TestBed.get(CartService);
+    const mock: MockCartService = TestBed.get(MockCartService);
+    let mockData = mock.getMockData();
+    service.cart = [];
+    service.cart.push(mockData);
+    service.cart[0].amount = 2;
+    service.updateTotalPrice();
+    expect(service.totalPrice).toEqual(278);
+  });
+
   describe('fetchCart', () => {
 
     beforeEach(() => {

@@ -31,8 +31,9 @@ export class DataService implements IFetchDataService {
     return this.http.get<IProduct>('https://medieinstitutet-wie-products.azurewebsites.net/api/products/' + id);
   }
 
-  postOrder(cart: IProduct[]): void{
+  postOrder(cart: IProduct[], totalPrice: number): void{
     this.createOrder(cart);
+    this.order.totalPrice = totalPrice;
     this.http.post('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', this.order).subscribe((data:any) => {console.log(data)})
   }
 
@@ -40,15 +41,6 @@ export class DataService implements IFetchDataService {
     for(let i = 0; i < cart.length; i++){
       this.order.orderRows.push({productId: cart[i].id, amount: cart[i].amount});
     }
-    this.order.totalPrice = this.calculateTotalPrice(cart);
-  }
-
-  calculateTotalPrice(cart:IProduct[]):number{
-    let totalSum:number = 0;
-    for(let i = 0; i < cart.length; i++){
-      totalSum += cart[i].amount * cart[i].price;
-    }
-    return totalSum;
   }
 
 }

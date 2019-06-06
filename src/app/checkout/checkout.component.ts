@@ -13,12 +13,14 @@ import { DataService } from '../services/data.service';
 export class CheckoutComponent implements OnInit {
 
   cartList: Array<IProduct>;
+  totalPrice: number;
 
   constructor(private cartService: CartService, private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
     this.cartList = this.cartService.fetchCart();
     this.cartService.castCartSubject.subscribe(cartSubject => this.cartList = cartSubject);
+    this.cartService.castTotalPriceSubject.subscribe(totalPriceSubject => this.totalPrice = totalPriceSubject);
   }
 
   removeProduct(id: number): void{
@@ -26,7 +28,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   postOrder(){
-    this.dataService.postOrder(this.cartList);
+    this.dataService.postOrder(this.cartList, this.totalPrice);
   }
 
 }
