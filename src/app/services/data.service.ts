@@ -40,6 +40,15 @@ export class DataService implements IFetchDataService {
     for(let i = 0; i < cart.length; i++){
       this.order.orderRows.push({productId: cart[i].id, amount: cart[i].amount});
     }
+    this.order.totalPrice = this.calculateTotalPrice(cart);
+  }
+
+  calculateTotalPrice(cart:IProduct[]):number{
+    let totalSum:number = 0;
+    for(let i = 0; i < cart.length; i++){
+      totalSum += cart[i].amount * cart[i].price;
+    }
+    return totalSum;
   }
 
 }
