@@ -44,7 +44,7 @@ export class CartService implements IAddProductToCartService {
     this.productAmount = amount;
   }
 
-  updateCart(){
+  updateCart(): void{
     this.cartString = sessionStorage.getItem("productCart");
     this.cart = JSON.parse(this.cartString);
     if(this.cart === null){
@@ -52,13 +52,13 @@ export class CartService implements IAddProductToCartService {
     }
   }
 
-  castSubjects(){
+  castSubjects(): void{
     this.cartSubject.next(this.cart);
     this.productAmountSubject.next(this.productAmount);
     this.totalPriceSubject.next(this.totalPrice);
   }
 
-  checkIfProductIsInCart(productObject: IProduct){
+  checkIfProductIsInCart(productObject: IProduct): number{
     for(let i = 0; i < this.cart.length; i++){
       if(this.cart[i].id === productObject.id){
         return i;
@@ -67,7 +67,7 @@ export class CartService implements IAddProductToCartService {
     return -1;
   }
 
-  addProduct(productObject: IProduct){
+  addProduct(productObject: IProduct): void{
     this.updateCart();
     if(this.checkIfProductIsInCart(productObject) === -1){
       productObject.amount = 1;
@@ -81,7 +81,7 @@ export class CartService implements IAddProductToCartService {
     this.castSubjects();
   }
 
-  addQuantityOfProducts(productObject: IProduct, quantity: number){
+  addQuantityOfProducts(productObject: IProduct, quantity: number): void{
     this.updateCart();
     for(let i = 0; i < quantity; i++){
       if(this.checkIfProductIsInCart(productObject) === -1){
@@ -97,7 +97,7 @@ export class CartService implements IAddProductToCartService {
     this.castSubjects();
   }
 
-  removeProduct(id: number){
+  removeProduct(id: number): void{
     this.updateCart()
     for(let i = 0; i < this.cart.length; i++){
       if(this.cart[i].id === id){

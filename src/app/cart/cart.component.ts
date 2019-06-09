@@ -3,12 +3,6 @@ import { IProduct } from '../interfaces/IProduct';
 import { CartService } from '../services/cart.service';
 import { Router } from '@angular/router';
 
-
-import { Subject } from 'rxjs';
-import { delay } from 'q';
-
-
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -33,19 +27,19 @@ export class CartComponent implements OnInit {
 
   removeProduct(id: number): void{
     this.cartService.removeProduct(id);
+    this.showCart();
   }
 
   goToCheckout(): void{
-    console.log('clicked');
     this.router.navigate(['/checkout']);
   }
 
-  showCart(){
+  showCart(): void{
     this.isHoveredOver = true;
     clearInterval(this.hoverTimeout);
   }
 
-  hideCart(){
+  hideCart(): void{
     this.hoverTimeout = setInterval(() => { 
       this.isHoveredOver = false; }, 
       1000);

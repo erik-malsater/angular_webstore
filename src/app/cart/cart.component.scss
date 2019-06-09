@@ -1,11 +1,31 @@
 .cartContainer{
-    background-color: pink;
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+}
+
+#cartIcon{
+  height: 2rem;
+  width: 2rem;
+}
+
+#productAmountText{
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  background-color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  text-align: center;
+  margin: -3px -7px 0 0;
+  line-height: 22px;
 }
 
 .dropdownButton {
-    height: 2rem;
+  position: relative;
+  height: 2rem;
+  background-color: #1B1D21; 
 }
 
 .dropdownContainer {
@@ -18,9 +38,12 @@
   overflow: hidden;
 
   position: absolute;
-  background-color: white;
+  background-color: grey;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  //border: 1px solid lightgrey;
+  background-color: #1B1D21;
+  color: white;
 
   h2{
     text-align: center;
@@ -49,15 +72,26 @@
   overflow: visible;
   right: 0rem;
   width: 25rem;
+  border: 1px solid grey;
 }
 
+/*
 .cartContainer:hover .dropdownButton {
     background-color: #3e8e41;
   }
+*/
 
 .cartProductsContainer{
   max-height: 30rem;
   overflow: scroll;
+  background-color: #292C33;
+  width: 24rem;
+  margin: 0 auto;
+  //color: black;
+}
+
+.emptyCartText{
+  text-align: center;
 }
 
 .cartSingleProductBox{
@@ -107,5 +141,23 @@
     position: absolute;
     bottom: 0;
     margin-bottom: 0;
+    cursor: pointer;
+  }
+}
+
+.totalPriceText{
+  font-size: 1.5rem;
+}
+
+.cartMenuBox{
+  height: 10rem;
+  text-align: center;
+
+  button{
+    height: 4rem;
+    width: 24rem;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
   }
 }

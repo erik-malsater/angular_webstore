@@ -17,7 +17,7 @@ export class MockCartService {
     "amount": null
   };
 
-  getMockData(){
+  getMockData(): IProduct{
     return this.mockProduct;
   }
 

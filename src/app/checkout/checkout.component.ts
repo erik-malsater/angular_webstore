@@ -27,7 +27,7 @@ export class CheckoutComponent implements OnInit {
     this.cartService.removeProduct(id);
   }
 
-  postOrder(){
+  postOrder(): void{
     this.dataService.postOrder(this.cartList, this.totalPrice);
   }
 

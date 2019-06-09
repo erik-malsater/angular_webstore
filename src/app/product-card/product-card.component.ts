@@ -17,7 +17,7 @@ export class ProductCardComponent implements OnInit {
   ngOnInit() { 
   }
 
-  addToCart(product: IProduct) {
+  addToCart(product: IProduct): void{
     event.cancelBubble = true;
     if(event.stopPropagation) {
       event.stopPropagation();
@@ -25,7 +25,7 @@ export class ProductCardComponent implements OnInit {
     this.addProductService.addProduct(product);
   }
 
-  onSelect(product){
+  onSelect(product: number): void{
     this.router.navigate(['/products', this.productFromInput.id])
   }
 

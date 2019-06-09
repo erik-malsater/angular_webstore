@@ -37,7 +37,7 @@ export class DataService implements IFetchDataService {
     this.http.post('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', this.order).subscribe((data:any) => {console.log(data)})
   }
 
-  createOrder(cart:IProduct[]):void{
+  createOrder(cart:IProduct[]): void{
     for(let i = 0; i < cart.length; i++){
       this.order.orderRows.push({productId: cart[i].id, amount: cart[i].amount});
     }

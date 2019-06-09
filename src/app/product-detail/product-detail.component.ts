@@ -30,7 +30,7 @@ export class ProductDetailComponent implements OnInit {
     this.dataService.fetchSingleData(this.productId).subscribe(data => this.singleProduct = data);
   }
 
-  addToCart(){
+  addToCart(): void{
     this.selectedQuantity = parseInt(this.selectedQuantityString);
     this.addToCartService.addQuantityOfProducts(this.singleProduct, this.selectedQuantity);
   }

@@ -1,10 +1,13 @@
 <div class="cartContainer" (mouseover)="showCart()" (mouseleave)="hideCart()">
 
-  <button class="dropdownButton">Cart {{ productAmount }}</button>
+  <div class="dropdownButton">
+    <img src="../../assets/shopping-bag.png" alt="Cart icon" id="cartIcon">
+    <p *ngIf="productAmount" id="productAmountText">{{ productAmount }}</p>
+  </div>
   <div class="dropdownContainer" [class.dropdownContainerHover]="isHoveredOver">
     <h2>Cart</h2>
     <div class="cartProductsContainer">
-      <p *ngIf="!productAmount">Your cart is empty</p>
+      <p *ngIf="!productAmount" class="emptyCartText">Your cart is empty</p>
       <div class="cartSingleProductBox" *ngFor="let product of cartList">
 
         <div class="productFlexBox">
@@ -26,7 +29,7 @@
       </div>
     </div>
     <div class="cartMenuBox">
-      <p>Total: {{ totalPrice }}</p>
+      <p class="totalPriceText">Total: {{ totalPrice }}</p>
       <button (click)="goToCheckout()">Go to checkout</button>
     </div>
   </div>

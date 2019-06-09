@@ -1,5 +1,7 @@
 <div class="productCardBox" (click)="onSelect(product)">
-  <img src="{{ productFromInput.imageUrl }}" alt="">
+  <div class="imageFrame">
+      <img src="{{ productFromInput.imageUrl }}" alt="">
+  </div>
   <div class="hoverBox">
     <h2> {{ productFromInput.name }} ({{ productFromInput.year }}) </h2>
     <p>Price: {{ productFromInput.price }} </p>

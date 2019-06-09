@@ -87,7 +87,7 @@ export class MockFetchDataService {
     return of(this.mockProductList);
   }
   
-  fetchSingleData(id: number): Observable<IProduct> {
+  fetchSingleData(id: number): Observable<IProduct>{
     return of(this.mockSingleProduct);
   }
 
