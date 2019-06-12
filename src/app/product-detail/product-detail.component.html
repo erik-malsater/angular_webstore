@@ -1,17 +1,33 @@
 <main class="productDetailContainer">
 
-  <p>
+  <h2>
     {{ singleProduct?.name }}
-  </p>
+  </h2>
 
-  <img src="{{ singleProduct?.imageUrl }}" alt="">
+  <div class="singleProductBox">
 
-  <p>{{ singleProduct?.description }}</p>
+    <div class="imageFrame">
+      <img src="{{ singleProduct?.imageUrl }}" alt="{{ singleProduct?.name }}">
+    </div>
 
-  <button (click)="addToCart()">Add to cart</button>
-  <select [(ngModel)]="selectedQuantityString">
-    <option *ngFor="let quantity of quantityList" [value]="quantity">{{ quantity }}</option>
-  </select>
+    <div class="productDescriptionSelectBox">
+
+      <!--<p class="productDescription"><span class="productQuote">´´</span> {{ singleProduct?.description }} <span class="productQuote">``</span></p>-->
+
+      <blockquote>{{ singleProduct?.description }}</blockquote>
+      <p>Price: {{ singleProduct?.price }} kr</p>
+      <div class="productSelectBox">
+        <select [(ngModel)]="selectedQuantityString">
+          <option *ngFor="let quantity of quantityList" [value]="quantity">{{ quantity }}</option>
+        </select>
+        
+
+        <button (click)="addToCart()">Add to cart</button>
+      </div>
+
+  </div>
+
+</div>
 
 </main>
 

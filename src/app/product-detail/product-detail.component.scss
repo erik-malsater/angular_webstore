@@ -1,4 +1,73 @@
 .productDetailContainer{
-    padding-top: 8rem;
-    background-color: #292C33;
+    padding-top: 6rem;
+    font-family: Raleway, sans-serif;
+    color: white;
+    height: 100%;
 }
+
+h2{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.singleProductBox{
+    display: flex;
+    justify-content: space-between;
+    width: 70rem;
+    margin: 0 auto;
+}
+
+.imageFrame img{
+    object-fit: cover;
+    width: 100%;
+}
+
+.imageFrame{
+    width: 20rem;
+    height: 30rem;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.productQuote{
+    font-size: 3rem;
+    padding-top: 15px;
+}
+
+.productDescription{
+    max-width: 40rem;
+}
+
+blockquote {
+    font-style: italic;
+    //width: 500px;
+    width: 40rem;
+    margin: 0.25rem 0;
+    padding: 0.35rem 2rem;
+    line-height: 1.45;
+    position: relative;
+}
+
+blockquote:before {
+    display: block;
+    padding-left: 10px;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+}
+
+blockquote cite:before {
+    content: "\2014 \2009";
+}
+
+.productSelectBox{
+    margin-top: 5rem;
+}
+
+select{
+    margin-right: 0.5rem;
+}
+
+

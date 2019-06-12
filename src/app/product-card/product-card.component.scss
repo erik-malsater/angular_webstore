@@ -4,6 +4,7 @@
     position: relative;
     margin: 0 3rem 3rem 3rem;
     background-color: black;
+    cursor: pointer;
 
     img{
         width: 20rem;
@@ -23,7 +24,6 @@ button{
     background-color: #15161A;
     color: white;
     font-size: 16px;
-    //padding: 12px 24px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
@@ -51,6 +51,10 @@ button{
     cursor: pointer;
 }
 
+button:hover{
+    text-decoration: underline;
+}
+
 .hoverBox, h2, p{
     clip: rect(1px 1px 1px 1px); /* IE 6/7 */
     clip: rect(1px, 1px, 1px, 1px);
@@ -70,6 +74,10 @@ button{
 h2{
     top: 55%;
     left: 50%;
+}
+
+h2:hover{
+    text-decoration: underline;
 }
 
 p{
