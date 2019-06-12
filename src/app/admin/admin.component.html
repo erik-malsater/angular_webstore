@@ -1,0 +1,23 @@
+<main class="adminContainer">
+  <h2>Orders</h2>
+  <div *ngFor="let order of orderList" class="singleOrderBox">
+    <p>
+      <span class="orderHeader">Id:</span> {{ order.id }}
+    </p>
+    <p>
+      <span class="orderHeader">Created:</span> {{ order.created }}
+    </p>
+    <p>
+      <span class="orderHeader">Total price:</span> {{ order.totalPrice }}
+    </p>
+    <p>
+      <span class="orderHeader">Products:</span>
+    </p>
+    <div *ngFor="let orderRow of order.orderRows" class="singleOrderProductsBox">
+      <p>
+        - <span class="orderHeader">Procuct id:</span> {{ orderRow.id }}, 
+        <span class="orderHeader">Amount:</span> {{ orderRow.amount }}
+      </p>
+    </div>
+  </div>
+</main>

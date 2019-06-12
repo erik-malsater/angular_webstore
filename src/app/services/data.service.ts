@@ -43,4 +43,8 @@ export class DataService implements IFetchDataService {
     }
   }
 
+  fetchAllOrderData(): Observable<IOrder[]>{
+    return this.http.get<IOrder[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=5');
+  }
+
 }

@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HttpClientModule } from '@angular/common/http';
 import { FeedComponent } from './feed.component';
 import { MockFetchDataService } from '../services/mock-fetch-data.service';

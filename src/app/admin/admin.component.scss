@@ -1,0 +1,28 @@
+.adminContainer{
+    padding: 6rem 0 4rem 0;
+    background-color: #292C33;
+    color: white;
+    font-family: Raleway, sans-serif;
+    height: 100%;
+
+    h2{
+        text-align: center;
+        font-size: 2rem;
+    }
+}
+
+.singleOrderBox{
+    color: black;
+    background-color: lightgrey;
+    width: 30rem;
+    margin: 0 auto 2rem auto;
+    padding: 2rem;
+}
+
+.orderHeader{
+    font-weight: 800;
+}
+
+.singleOrderProductsBox{
+    margin-left: 1rem;
+}

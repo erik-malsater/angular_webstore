@@ -27,7 +27,6 @@ export class CartComponent implements OnInit {
 
   removeProduct(id: number): void{
     this.cartService.removeProduct(id);
-    this.showCart();
   }
 
   goToCheckout(): void{

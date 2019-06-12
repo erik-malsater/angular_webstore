@@ -2,10 +2,7 @@
     font-family: Raleway, sans-serif;
     color: white;
     position: relative;
-    /*width: 20rem;
-    height: 30rem;*/
     margin: 0 3rem 3rem 3rem;
-    //background-color: #292C33;
     background-color: black;
 
     img{
@@ -20,15 +17,13 @@
     width: 20rem;
     height: 30rem;
     overflow: hidden;
-    //background-color: #292C33;
-    //margin: 0 3rem 3rem 3rem;
 }
 
 button{
-    background-color: #555;
+    background-color: #15161A;
     color: white;
     font-size: 16px;
-    padding: 12px 24px;
+    //padding: 12px 24px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
@@ -49,6 +44,11 @@ button{
     width:auto;
     height:auto;
     overflow:auto;
+    height: 2.2rem;
+    width: 7rem;
+    border-radius: 2.2rem;
+    border: 1px solid white;
+    cursor: pointer;
 }
 
 .hoverBox, h2, p{
@@ -93,7 +93,6 @@ p{
     clip: auto;
     width: auto;
     height: auto;
-    //overflow: auto;
     overflow: hidden;
 }
 

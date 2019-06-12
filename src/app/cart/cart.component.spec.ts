@@ -26,4 +26,8 @@ describe('CartComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('', () => {
+    expect(component).toBeTruthy();
+  });
+
 });

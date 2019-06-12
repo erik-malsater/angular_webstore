@@ -8,7 +8,7 @@
     <h2>Cart</h2>
     <div class="cartProductsContainer">
       <p *ngIf="!productAmount" class="emptyCartText">Your cart is empty</p>
-      <div class="cartSingleProductBox" *ngFor="let product of cartList">
+      <div class="cartSingleProductBox" *ngFor="let product of cartList; let i = index; let length = count">
 
         <div class="productFlexBox">
 
@@ -24,12 +24,12 @@
 
         </div>
 
-        <hr>
+        <hr *ngIf="productAmount > 1 && i+1 < length">
 
       </div>
     </div>
     <div class="cartMenuBox">
-      <p class="totalPriceText">Total: {{ totalPrice }}</p>
+      <p class="totalPriceText">Total: {{ totalPrice }} kr</p>
       <button (click)="goToCheckout()">Go to checkout</button>
     </div>
   </div>

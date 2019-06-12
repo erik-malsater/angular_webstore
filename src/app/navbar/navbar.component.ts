@@ -16,4 +16,8 @@ export class NavbarComponent implements OnInit {
   goToHome(): void{
     this.router.navigate(['']);
   }
+
+  goToAdminPage(): void{
+    this.router.navigate(['/admin']);
+  }
 }

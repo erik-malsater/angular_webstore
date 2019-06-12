@@ -3,6 +3,8 @@ import { IFetchDataService } from '../interfaces/IFetchDataService';
 import { IProduct } from '../interfaces/IProduct';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { IOrder } from '../interfaces/IOrder';
+import { IOrderData } from '../interfaces/IOrderData';
 
 
 @Injectable({
@@ -51,8 +53,9 @@ export class MockFetchDataService {
     "amount": null
     };
 
-    mockCart: IProduct[] = [
-      { "id": 1, 
+  mockCart: IProduct[] = [
+    { 
+      "id": 1, 
       "name": "The Shining", 
       "price": 139, 
       "year": 1978, 
@@ -61,7 +64,8 @@ export class MockFetchDataService {
       "productCategory": [{"categoryId": 1}, {"category": null}],
       "amount": 2
     },
-      { "id": 2, 
+    { 
+      "id": 2, 
       "name": "Pulp Fiction", 
       "price": 159, 
       "year": 1994, 
@@ -70,7 +74,8 @@ export class MockFetchDataService {
       "productCategory": [{"categoryId": 2}, {"category": null}],
       "amount": 3
     },
-      { "id": 3, 
+    { 
+      "id": 3, 
       "name": "Kill Bill", 
       "price": 199, 
       "year": 2001, 
@@ -79,7 +84,44 @@ export class MockFetchDataService {
       "productCategory": [{"categoryId": 3}, {"category": null}],
       "amount": 4
     }
-    ];
+  ];
+
+  mockOrderList: IOrderData[] = [
+    {
+      "id":1735,
+      "companyId":5,
+      "created":"2019-06-06T13:12:19",
+      "createdBy":"Erik",
+      "paymentMethod":"Bitcoin",
+      "totalPrice":499,
+      "status":0,
+      "orderRows":[
+        {
+          "id":2574,
+          "productId":78,
+          "product":null,
+          "amount":2,
+          "orderId":1735
+        },
+        {
+          "id":2575,
+          "productId":76,
+          "product":null,
+          "amount":1,
+          "orderId":1735
+        },
+        {
+          "id":2576,
+          "productId":80,
+          "product":null,
+          "amount":1,
+          "orderId":1735
+        }
+      ]
+    }
+  ]
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -89,6 +131,10 @@ export class MockFetchDataService {
   
   fetchSingleData(id: number): Observable<IProduct>{
     return of(this.mockSingleProduct);
+  }
+
+  fetchAllOrderData(): Observable<IOrder[]>{
+    return of(this.mockOrderList);
   }
 
 }

@@ -3,14 +3,8 @@
     <h1 (click)="goToHome()">Movie<span id="purpleHeaderWord">Base</span></h1>
   </div>
 
-  <div class="searchContainer">
-    <input type="text">
-    <button>Search</button>
-  </div>
-
-  <div class="categoriesAdminCartContainer">
-    <button>Categories</button>
-    <button>Admin</button>
+  <div class="adminCartContainer">
+    <button id="adminPageLinkButton" (click)="goToAdminPage()">Admin page</button>
     <app-cart></app-cart>
   </div>
 </nav>
