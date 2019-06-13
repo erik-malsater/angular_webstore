@@ -1,11 +1,19 @@
 .checkoutContainer{
-    padding-top: 8rem;
+    padding-top: 6rem;
     background-color: #292C33;
+    color: white;
+    font-family: Raleway, sans-serif;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
 .singleProductBox{
+    position: relative;
     display: flex;
-    width: 20rem;
+    max-width: 50rem;
     margin: 0 auto;
     justify-content: space-between;
 
@@ -21,6 +29,45 @@
 
 .productImageFrame{
     height: 20rem;
-    width: 10rem;
+    width: 12rem;
     overflow: hidden;
+}
+
+.flexSibling{
+    width: 17rem;
+}
+
+.productInfoBox{
+    width: 17rem;
+}
+
+.checkoutMenu{
+    background-color: white;
+    background-color: #15161A;
+    border: 1px solid white;
+    border-radius: 1rem;
+    width: 15rem;
+    height: 15rem;
+    position: fixed;
+    top: 10rem;
+    left: 5rem;
+
+    p{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    button{
+        display: block;
+        margin: 0 auto;
+        background-color: #15161A;
+        color: white;
+        padding: 1rem;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+
+    button:hover{
+        text-decoration: underline;
+    }
 }
