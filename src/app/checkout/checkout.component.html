@@ -1,22 +1,23 @@
 <main class="checkoutContainer">
 
   <h2>Checkout</h2>
-
+  <p *ngIf="totalPrice === 0" class="emptyCartText">Your cart is empty</p>
   <div class="singleProductBox" *ngFor="let product of cartList">
+    
     <div class="flexSibling"></div>
     <div class="productImageFrame">
         <img src="{{ product.imageUrl }}" alt="">
     </div>
     <div class="productInfoBox">
         <p>{{ product.name }}</p>
-        <p>Antal: {{ product.amount }}</p>
+        <p>Amount: {{ product.amount }}</p>
         <p>{{ product.price * product.amount }} kr</p>
         <p class="removeProduct" (click) = "removeProduct(product.id)">Remove</p>
     </div>
   </div>
   <div class="checkoutMenu">
     <p>Total: {{ totalPrice }} kr</p>
-    <button (click)="postOrder()">Send order</button>
+    <button (click)="postOrder()" [disabled]="!totalPrice">Send order</button>
   </div>
   
 </main>

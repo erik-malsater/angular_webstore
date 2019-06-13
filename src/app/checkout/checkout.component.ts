@@ -30,5 +30,9 @@ export class CheckoutComponent implements OnInit {
   postOrder(): void{
     this.dataService.postOrder(this.cartList, this.totalPrice);
   }
-
+/*
+  emptyCart(): void{
+    this.cartService.emptyCart();
+  }
+*/
 }

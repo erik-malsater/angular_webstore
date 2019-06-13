@@ -122,4 +122,12 @@ export class CartService implements IAddProductToCartService {
     return this.cart;
   }
 
+  emptyCart(){
+    sessionStorage.removeItem("productCart");
+    this.updateCart();
+    this.updateProductAmount();
+    this.updateTotalPrice();
+    this.castSubjects();
+  }
+
 }

@@ -5,13 +5,14 @@ import { IProduct } from '../interfaces/IProduct';
 import { Observable } from 'rxjs';
 import { IOrder } from '../interfaces/IOrder';
 import * as moment from 'moment';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService implements IFetchDataService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cartService: CartService) { }
 
   order: IOrder = {
     "companyId": 5,
@@ -34,7 +35,8 @@ export class DataService implements IFetchDataService {
   postOrder(cart: IProduct[], totalPrice: number): void{
     this.createOrder(cart);
     this.order.totalPrice = totalPrice;
-    this.http.post('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', this.order).subscribe((data:any) => {console.log(data)})
+    this.http.post('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', this.order).subscribe((data:any) => {console.log(data)});
+    this.cartService.emptyCart();
   }
 
   createOrder(cart:IProduct[]): void{

@@ -10,6 +10,10 @@ h2{
     margin-bottom: 3rem;
 }
 
+.emptyCartText{
+    text-align: center;
+}
+
 .singleProductBox{
     position: relative;
     display: flex;
@@ -41,16 +45,21 @@ h2{
     width: 17rem;
 }
 
+.removeProduct:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .checkoutMenu{
     background-color: white;
     background-color: #15161A;
     border: 1px solid white;
     border-radius: 1rem;
     width: 15rem;
-    height: 15rem;
+    height: 10rem;
     position: fixed;
-    top: 10rem;
-    left: 5rem;
+    bottom: 2rem;
+    left: 2rem;
 
     p{
         font-size: 1.5rem;
@@ -69,5 +78,14 @@ h2{
 
     button:hover{
         text-decoration: underline;
+    }
+
+    button[disabled]{
+        color: grey;
+        border-color: grey;
+    }
+
+    button[disabled]:hover{
+        text-decoration: none;
     }
 }
