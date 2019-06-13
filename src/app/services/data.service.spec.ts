@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
-import { MockFetchDataService } from './mock-fetch-data.service';
+import { MockDataService } from './mock-data.service';
 
 describe('DataService', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -28,7 +28,7 @@ describe('DataService', () => {
 
     it('should add productId and amount from cart to orderRows', () => {
       const service: DataService = TestBed.get(DataService);
-      const mock: MockFetchDataService = TestBed.get(MockFetchDataService);
+      const mock: MockDataService = TestBed.get(MockDataService);
       let cart = mock.mockCart;
       service.createOrder(cart);
       expect(service.order.orderRows[2].amount).toBe(4);

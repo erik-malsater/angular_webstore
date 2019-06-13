@@ -10,7 +10,7 @@ import { IOrderData } from '../interfaces/IOrderData';
 @Injectable({
   providedIn: 'root'
 })
-export class MockFetchDataService {
+export class MockDataService {
 
   mockProductList: IProduct[] = [
       { "id": 1, 

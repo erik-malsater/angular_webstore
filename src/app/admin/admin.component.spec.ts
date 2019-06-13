@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AdminComponent } from './admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from '../services/data.service';
-import { MockFetchDataService } from '../services/mock-fetch-data.service';
+import { MockDataService } from '../services/mock-data.service';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -17,7 +17,7 @@ describe('AdminComponent', () => {
 
     .overrideComponent(AdminComponent,
       { set: { providers: [{ provide: DataService,
-      useClass: MockFetchDataService
+      useClass: MockDataService
       }]}}
       )
 

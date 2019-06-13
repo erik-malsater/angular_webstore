@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MockFetchDataService } from './mock-fetch-data.service';
+import { MockDataService } from './mock-data.service';
 
 describe('MockFetchDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -11,7 +11,7 @@ describe('MockFetchDataService', () => {
   }));
 
   it('should be created', () => {
-    const service: MockFetchDataService = TestBed.get(MockFetchDataService);
+    const service: MockDataService = TestBed.get(MockDataService);
     expect(service).toBeTruthy();
   });
 });

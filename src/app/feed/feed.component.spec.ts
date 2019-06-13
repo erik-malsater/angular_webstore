@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { FeedComponent } from './feed.component';
-import { MockFetchDataService } from '../services/mock-fetch-data.service';
+import { MockDataService } from '../services/mock-data.service';
 import { DataService } from '../services/data.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -21,7 +21,7 @@ describe('FeedComponent', () => {
 
     .overrideComponent(FeedComponent,
       { set: { providers: [{ provide: DataService,
-      useClass: MockFetchDataService
+      useClass: MockDataService
       }]}}
       )
     
