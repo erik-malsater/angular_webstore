@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { IFetchDataService } from '../interfaces/IFetchDataService';
 import { IProduct } from '../interfaces/IProduct';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { IOrder } from '../interfaces/IOrder';
-import { IOrderData } from '../interfaces/IOrderData';
+import { IMockOrderData } from '../interfaces/IMockOrderData';
 
 
 @Injectable({
@@ -86,7 +84,7 @@ export class MockDataService {
     }
   ];
 
-  mockOrderList: IOrderData[] = [
+  mockOrderList: IMockOrderData[] = [
     {
       "id":1735,
       "companyId":5,
@@ -133,7 +131,7 @@ export class MockDataService {
     return of(this.mockSingleProduct);
   }
 
-  fetchAllOrderData(): Observable<IOrder[]>{
+  fetchAllOrderData(): Observable<IMockOrderData[]>{
     return of(this.mockOrderList);
   }
 

@@ -14,6 +14,9 @@
       <span class="orderHeader">Total price:</span> {{ order.totalPrice }}
     </p>
     <p>
+        <span class="orderHeader">Payment method:</span> {{ order.paymentMethod }}
+      </p>
+    <p>
       <span class="orderHeader">Products:</span>
     </p>
     <div *ngFor="let orderRow of order.orderRows" class="singleOrderProductsBox">

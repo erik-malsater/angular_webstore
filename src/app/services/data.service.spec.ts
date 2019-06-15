@@ -30,7 +30,7 @@ describe('DataService', () => {
       const service: DataService = TestBed.get(DataService);
       const mock: MockDataService = TestBed.get(MockDataService);
       let cart = mock.mockCart;
-      service.createOrder(cart);
+      service.createOrderCart(cart);
       expect(service.order.orderRows[2].amount).toBe(4);
       expect(service.order.orderRows[1].productId).toBe(2);
     });

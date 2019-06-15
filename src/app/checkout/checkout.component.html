@@ -23,7 +23,7 @@
         <option *ngFor="let method of paymentMethods" [value]="method">{{ method }}</option>
       </select>
       <p>Total: {{ totalPrice }} kr</p>
-      <button type="submit" (click)="postOrder()" [disabled]="!orderForm.valid">Send order</button>
+      <button type="submit" [disabled]="!orderForm.valid">Send order</button>
     </form>
   </div>
 </main>

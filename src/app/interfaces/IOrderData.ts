@@ -1,12 +1,10 @@
-import { IOrderDataRows } from './IOrderDataRows';
+import { IProduct } from './IProduct';
 
 export interface IOrderData{
-    "id": number,
-    "companyId": number,
-      "created": string,
-      "createdBy": string,
-      "paymentMethod": string,
-      "totalPrice": number,
-      "status": number,
-      "orderRows": IOrderDataRows[]
+    cart: Array<IProduct>,
+    formData: {
+        name: string;
+        paymentMethod: string;
+    },
+    totalPrice: number
 }

@@ -56,13 +56,12 @@ h2{
     background-color: #15161A;
     border: 1px solid white;
     padding: 2rem;
-    //box-sizing: border-box;
     border-radius: 1rem;
-    //width: 15rem;
-    //height: 20rem;
     position: fixed;
-    bottom: 2rem;
-    left: 2rem;
+    //top: 13rem;
+    //left: 10rem;
+    top: 13rem;
+    left: 10%;
 
     input{
         display: block;
@@ -99,6 +98,7 @@ h2{
     button[disabled]{
         color: grey;
         border-color: grey;
+        cursor: not-allowed;
     }
 
     button[disabled]:hover{
