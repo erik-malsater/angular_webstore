@@ -129,5 +129,4 @@ export class CartService implements IAddProductToCartService {
     this.updateTotalPrice();
     this.castSubjects();
   }
-
 }

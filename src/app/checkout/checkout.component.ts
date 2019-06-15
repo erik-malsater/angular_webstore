@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../interfaces/IProduct';
 import { CartService } from '../services/cart.service';
-import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { IOrderData } from '../interfaces/IOrderData';
-//import { Subject } from 'rxjs';
 
 
 @Component({
@@ -27,7 +25,7 @@ export class CheckoutComponent implements OnInit {
     totalPrice: 0
   }
 
-  constructor(private cartService: CartService, private router: Router, private dataService: DataService, private fb: FormBuilder) { }
+  constructor(private cartService: CartService, private dataService: DataService, private fb: FormBuilder) { }
 
   orderForm = this.fb.group({
     name: [''],

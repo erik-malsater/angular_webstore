@@ -134,5 +134,4 @@ export class MockDataService {
   fetchAllOrderData(): Observable<IMockOrderData[]>{
     return of(this.mockOrderList);
   }
-
 }

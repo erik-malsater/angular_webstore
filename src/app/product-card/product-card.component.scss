@@ -40,11 +40,11 @@ button{
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+    clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
     height: 1px;
     overflow: hidden;
-    white-space: nowrap; /* added line */
+    white-space: nowrap;
     width: 1px;
 }
 
@@ -69,7 +69,7 @@ button:hover{
 }
 
 .hoverBox, h2, p{
-    clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+    clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
     height: 1px;
     overflow: hidden;
