@@ -12,8 +12,6 @@
 
     <div class="productDescriptionSelectBox">
 
-      <!--<p class="productDescription"><span class="productQuote">´´</span> {{ singleProduct?.description }} <span class="productQuote">``</span></p>-->
-
       <blockquote>{{ singleProduct?.description }}</blockquote>
       <p>Price: {{ singleProduct?.price }} kr</p>
       <div class="productSelectBox">
@@ -21,7 +19,6 @@
           <option *ngFor="let quantity of quantityList" [value]="quantity">{{ quantity }}</option>
         </select>
         
-
         <button (click)="addToCart()">Add to cart</button>
       </div>
 

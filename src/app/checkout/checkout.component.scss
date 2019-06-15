@@ -8,6 +8,7 @@
 h2{
     text-align: center;
     margin-bottom: 3rem;
+    font-size: 2rem;
 }
 
 .emptyCartText{
@@ -54,12 +55,27 @@ h2{
     background-color: white;
     background-color: #15161A;
     border: 1px solid white;
+    padding: 2rem;
+    //box-sizing: border-box;
     border-radius: 1rem;
-    width: 15rem;
-    height: 10rem;
+    //width: 15rem;
+    //height: 20rem;
     position: fixed;
     bottom: 2rem;
     left: 2rem;
+
+    input{
+        display: block;
+        margin: 0 auto 1rem auto;
+        width: 11.5rem;
+        height: 1.5rem;
+        border-radius: 0.3rem
+    }
+
+    select{
+        width: 12rem;
+        height: 2rem;
+    }
 
     p{
         font-size: 1.5rem;

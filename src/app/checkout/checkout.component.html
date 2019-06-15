@@ -16,10 +16,16 @@
     </div>
   </div>
   <div class="checkoutMenu">
-    <p>Total: {{ totalPrice }} kr</p>
-    <button (click)="postOrder()" [disabled]="!totalPrice">Send order</button>
+    <form [formGroup]="orderForm" (ngSubmit)="postOrder()">
+      <input type="text" placeholder="Name" formControlName="name" id="nameTextField" required>
+      <select formControlName="paymentMethod" required>
+        <option disabled [selected]="'Payment method'" value="">Payment method</option>
+        <option *ngFor="let method of paymentMethods" [value]="method">{{ method }}</option>
+      </select>
+      <p>Total: {{ totalPrice }} kr</p>
+      <button type="submit" (click)="postOrder()" [disabled]="!orderForm.valid">Send order</button>
+    </form>
   </div>
-  
 </main>
 
 
